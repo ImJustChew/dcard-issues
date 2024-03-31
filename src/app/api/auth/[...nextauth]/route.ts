@@ -13,9 +13,10 @@ export const authOptions: AuthOptions = {
       }),
     ],
     callbacks: {
-        async session({ session, token, user }) {
+        async session({ session, token }) {
             const newSession = { 
                 ...session,
+                id: token.sub,
                 accessToken: token.accessToken
             };
             return newSession;
