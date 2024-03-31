@@ -1,8 +1,15 @@
 import { FC, PropsWithChildren } from "react";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
+import SignOutButton from "@/components/login/SignOutButton";
 
-const Sidebar = () => {
+const Sidebar = async () => {
+    const session = await getServerSession(authOptions);
+    
+    
     return <div className="w-64 h-screen">
         <h1 className="text-2xl font-bold">Blogs</h1>
+        {session && <SignOutButton/>}
     </div>
 }
 

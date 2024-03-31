@@ -8,7 +8,7 @@ export const authOptions: AuthOptions = {
         clientId: process.env.GITHUB_CLIENT_ID ?? '',
         clientSecret: process.env.GITHUB_CLIENT_SECRET ?? '',
         authorization: {
-          params: { scope: 'public_repo' }
+          params: { scope: 'public_repo,issues:write' }
         }
       }),
     ],

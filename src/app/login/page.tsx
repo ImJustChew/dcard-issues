@@ -1,6 +1,5 @@
+import { GithubLoginButton } from "@/components/login/GithubLoginButton";
 import { getServerSession } from "next-auth";
-import { GithubLoginButton } from "./GithubLoginButton";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 
 const LoginPage = async () => {
