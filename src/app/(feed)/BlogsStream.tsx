@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { formatDistanceStrict } from 'date-fns';
 import { InView } from 'react-intersection-observer';
 import {IssueResponseType, IssuesResponseType} from '@/types/posts';
-import loadPosts from './feed.action';
+import loadPosts from './page.action';
 
 
 const useTime = () => {

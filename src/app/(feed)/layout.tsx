@@ -14,6 +14,7 @@ import {
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 const UserMenu: FC<PropsWithChildren> = ({ children }) => {
     return <DropdownMenu>
@@ -35,13 +36,14 @@ const UserMenu: FC<PropsWithChildren> = ({ children }) => {
 const Header = async () => {
     const session = await getServerSession(authOptions);
 
-
     return <div className="h-12 px-4 py-1 flex flex-row items-center">
         <div className="flex-1 h-full flex flex-row items-center">
             <h1 className="text-xl font-medium">Blogs</h1>
         </div>
         <div className="flex flex-row gap-2 items-center">
-            <Button variant='ghost'><Plus className="w-4 h-4 mr-2"/> New Post</Button>
+            <Link href='/post/new'>
+                <Button variant='ghost'><Plus className="w-4 h-4 mr-2"/> New Post</Button>
+            </Link>
             {!session && <GithubLoginButton />}
             {session && <UserMenu>
                 <Image src={session.user.image} alt='avatar' width={32} height={32} className='rounded-full w-8 h-8' />

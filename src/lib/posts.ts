@@ -48,3 +48,15 @@ export const deletePost = async (id: string, access_token: string) => {
         state: "closed"
     });
 }
+
+export const createPost = async (title: string, body: string, access_token: string) => {
+    const octokit = new Octokit({
+        auth: access_token
+    });
+    await octokit.rest.issues.create({
+        owner: "ImJustChew",
+        repo: "dcard-issues",
+        title,
+        body
+    });
+}

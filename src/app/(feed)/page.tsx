@@ -1,5 +1,4 @@
-import { GetResponseDataTypeFromEndpointMethod } from "@octokit/types";
-import { Octokit, App } from "octokit";
+import { Octokit } from "octokit";
 import BlogsStream from "./BlogsStream";
 import {getPostByPage} from '@/lib/posts';
 
