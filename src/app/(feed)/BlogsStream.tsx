@@ -43,8 +43,6 @@ const BlogsStream = ({ initialData }: { initialData: IssuesResponseType }) => {
         setDisplayData([...displayData, ...posts.filter((post) => !displayData.some((oldPost) => oldPost.id === post.id))]);
     }
 
-    console.log(displayData)
-
     return <div className='flex flex-col'>
         {displayData.map((issue) => <BlogsItem key={issue.id} issue={issue} />)}
         <InView threshold={0.1} onChange={(inView) => inView && loadMorePosts()}>

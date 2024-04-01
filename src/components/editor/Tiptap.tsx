@@ -1,32 +1,31 @@
-import { EditorProvider, FloatingMenu, BubbleMenu, EditorContent, Editor, useEditor } from '@tiptap/react'
-import StarterKit from '@tiptap/starter-kit'
-import Document from '@tiptap/extension-document'
-import Placeholder from '@tiptap/extension-placeholder'
-import Typography from '@tiptap/extension-typography'
+import { FloatingMenu, BubbleMenu, EditorContent, Editor } from '@tiptap/react';
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
+import { Bold, Italic, Strikethrough } from 'lucide-react';
 
-const Tiptap = ({ editor }: { editor: ReturnType<typeof Editor>}) => {
+const Tiptap = ({ editor }: { editor: Editor}) => {
   return (
-    < >
-      <FloatingMenu editor={editor!}>This is the floating menu</FloatingMenu>
-      {editor && <BubbleMenu className="bubble-menu" tippyOptions={{ duration: 100 }} editor={editor}>
-        <button
-          onClick={() => editor.chain().focus().toggleBold().run()}
-          className={editor.isActive('bold') ? 'is-active' : ''}
-        >
-          Bold
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleItalic().run()}
-          className={editor.isActive('italic') ? 'is-active' : ''}
-        >
-          Italic
-        </button>
-        <button
-          onClick={() => editor.chain().focus().toggleStrike().run()}
-          className={editor.isActive('strike') ? 'is-active' : ''}
-        >
-          Strike
-        </button>
+    <>
+      {editor && <BubbleMenu className="bg-background" tippyOptions={{ duration: 100 }} editor={editor}>
+        <ToggleGroup type="multiple">
+          <ToggleGroupItem
+            value="bold"
+            onClick={() => editor.chain().focus().toggleBold().run()}
+          >
+            <Bold className="h-4 w-4" />
+          </ToggleGroupItem>
+          <ToggleGroupItem
+            value="italic"
+            onClick={() => editor.chain().focus().toggleItalic().run()}
+          >
+            <Italic className="h-4 w-4" />
+          </ToggleGroupItem>
+          <ToggleGroupItem
+            value="strike"
+            onClick={() => editor.chain().focus().toggleStrike().run()}
+          >
+            <Strikethrough className="h-4 w-4" />
+          </ToggleGroupItem>
+        </ToggleGroup>
       </BubbleMenu>}
       <EditorContent editor={editor}/>
     </>

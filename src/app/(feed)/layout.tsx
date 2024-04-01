@@ -27,7 +27,7 @@ const UserMenu: FC<PropsWithChildren> = ({ children }) => {
             <DropdownMenuItem>Profile</DropdownMenuItem>
             <DropdownMenuItem>Billing</DropdownMenuItem>
             <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuItem>Subscription</DropdownMenuItem>
+            <DropdownMenuItem><SignOutButton /></DropdownMenuItem>
         </DropdownMenuContent>
     </DropdownMenu>
 

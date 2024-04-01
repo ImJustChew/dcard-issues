@@ -17,11 +17,9 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession();
-
   return (
     <html lang="en">
-      <NextAuthProvider session={session}>
+      <NextAuthProvider>
         <body className={inter.className}>
           {children}
           <Toaster />
