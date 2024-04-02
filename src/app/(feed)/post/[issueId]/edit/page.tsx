@@ -7,7 +7,7 @@ import {ChevronLeft} from 'lucide-react';
 import Link from 'next/link';
 import remarkGfm from 'remark-gfm';
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { redirect } from "next/navigation";
 
 const NewPostPage = async ({ params: { issueId } }: PostRouteProps) => {

@@ -1,8 +1,8 @@
 'use server';
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import {createPost, updatePost} from '@/lib/posts';
 import {revalidatePath} from 'next/cache';
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 
 export const publishPost = async (title: string, content: string) => {
     const session = await getServerSession(authOptions);

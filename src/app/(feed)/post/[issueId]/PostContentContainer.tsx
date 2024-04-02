@@ -1,4 +1,4 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from "@/app/api/auth/[...nextauth]/authOptions";
 import { Separator } from '@/components/ui/separator';
 import { IssueResponseType } from '@/types/posts';
 import { format } from 'date-fns';
