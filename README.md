@@ -1,8 +1,6 @@
 # Dcard 2024 Frontend Intern Homework
 
-[Instructions] (https://drive.google.com/file/d/1x5l_hC5c26MauhTpACwGaa2nBUDo5uad/view) 
-
-[Live Demo](https://dcardblog.imjustchew.com/)
+[Details](https://drive.google.com/file/d/1x5l_hC5c26MauhTpACwGaa2nBUDo5uad/view) | [Live Demo](https://dcardblog.imjustchew.com/)
 
 >`.env.local` file is required for the project to run. Please refer to `.env.example` for the required environment variables.
 
@@ -28,4 +26,9 @@ To start the project, run `npm install` and `npm run dev` in the terminal.
 - [x] editor 是 WYSIWYG
 - [x] 文章頁面有 SEO Open Graph 支持
 
-
+## Known Issues / Improvements
+- Missing Loaders for posting progress
+- Misisng Icons/Fvaicon and Robots.txt file
+- Access Token refreshing
+- User Profile Filtering
+- Loading Skeleton from main page -> post/[issueId] sometimes will fail (App Router issue)
