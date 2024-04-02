@@ -8,10 +8,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { remark } from 'remark';
 import html from 'remark-html';
+import remarkGfm from 'remark-gfm'
 import { PostEditingToolbar } from './PostEditingToolbar';
 
 export const PostContentContainer = async ({ issue }: { issue: IssueResponseType; }) => {
-    const content = remark().use(html).processSync(issue.body ?? "").toString();
+    const content = remark().use(remarkGfm).use(html).processSync(issue.body ?? "").toString();
     const session = await getServerSession(authOptions);
     const isAuthor = issue.user?.id == session?.id;
 

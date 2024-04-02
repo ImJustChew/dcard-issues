@@ -5,10 +5,11 @@ import {remark} from 'remark';
 import html from 'remark-html';
 import {ChevronLeft} from 'lucide-react';
 import Link from 'next/link';
+import remarkGfm from 'remark-gfm';
 
 const NewPostPage = async ({ params: { issueId } }: PostRouteProps) => {
     const issue = await getPostById(issueId);
-    const content = remark().use(html).processSync(issue.body ?? "").toString();
+    const content = remark().use(remarkGfm).use(html).processSync(issue.body ?? "").toString();
     return <div className="px-2 flex flex-col items-center">
         <div className="flex flex-col max-w-[65ch]">
             <div className='py-4'>
