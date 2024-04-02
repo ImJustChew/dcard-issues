@@ -5,10 +5,6 @@ import { Metadata } from 'next';
 import { PostRouteProps } from './page.type';
 
 export async function generateMetadata({ params: { issueId } }: PostRouteProps) {
-    if (!issueId) {
-        redirect('/404');
-        return;
-    }
     const issue = await getPostById(issueId);
     return {
         title: issue.title,
@@ -30,13 +26,9 @@ export async function generateMetadata({ params: { issueId } }: PostRouteProps) 
   
 
 const PostPage = async ({ params: { issueId } }: PostRouteProps) => {
-    if (!issueId) {
-        redirect('/404');
-        return null;
-    }
     const issue = await getPostById(issueId);
     return <div className="px-2 flex flex-col items-center">
-        <div className="flex flex-col max-w-[65ch]">
+        <div className="flex flex-col w-full max-w-[65ch]">
             <PostContentContainer issue={issue} />
         </div>
     </div>

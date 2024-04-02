@@ -1,14 +1,12 @@
 'use client';;
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { formatDistanceStrict } from 'date-fns';
 import { InView } from 'react-intersection-observer';
-import {IssueResponseType, IssuesResponseType} from '@/types/posts';
+import {IssuesResponseType} from '@/types/posts';
 import loadPosts from './page.action';
+import { BlogsItem } from './BlogsItem';
 
 
-const useTime = () => {
+export const useTime = () => {
     const [time, setTime] = useState(new Date());
     useEffect(() => {
         const interval = setInterval(() => {
@@ -17,20 +15,6 @@ const useTime = () => {
         return () => clearInterval(interval);
     }, []);
     return time;
-}
-
-const BlogsItem = ({ issue }: { issue: IssueResponseType }) => {
-    const time = useTime();
-    return <Link className='flex flex-col py-3 hover:bg-gray-50 transition-colors px-4' href={`/post/${issue.number}`}>
-        {issue.user && <div className='flex flex-row gap-2'>
-            <Image src={issue.user.avatar_url} alt='avatar' width={24} height={24} className='rounded-full ' />
-            <p>{issue.user.login}</p>
-            -
-            <p>{formatDistanceStrict(time, new Date(issue.created_at), { addSuffix: false })} </p>
-        </div>}
-        <h1 className='font-bold text-lg'>{issue.title}</h1>
-        <p className='line-clamp-3'>{issue.body}</p>
-    </Link>;
 }
 
 const BlogsStream = ({ initialData }: { initialData: IssuesResponseType }) => {
@@ -43,7 +27,7 @@ const BlogsStream = ({ initialData }: { initialData: IssuesResponseType }) => {
         setDisplayData([...displayData, ...posts.filter((post) => !displayData.some((oldPost) => oldPost.id === post.id))]);
     }
 
-    return <div className='flex flex-col'>
+    return <div className='flex flex-col max-w-[70ch]'>
         {displayData.map((issue) => <BlogsItem key={issue.id} issue={issue} />)}
         <InView threshold={0.1} onChange={(inView) => inView && loadMorePosts()}>
             <p></p>
