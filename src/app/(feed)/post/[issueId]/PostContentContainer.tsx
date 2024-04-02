@@ -25,7 +25,7 @@ export const PostContentContainer = async ({ issue }: { issue: IssueResponseType
                 </Link>
             </div>
             <div className='flex flex-col gap-2 py-4'>
-                <p className='text-sm text-secondary'>{format(new Date(issue.created_at), 'PPpp')}</p>
+                <p className='text-sm text-gray-400'>{format(new Date(issue.created_at), 'PPpp')}</p>
                 <h1 className='font-bold text-3xl'>{issue.title}</h1>
                 {issue.user && <div className='flex flex-row gap-2'>
                     <Image src={issue.user.avatar_url} alt='avatar' width={24} height={24} className='rounded-full' />
