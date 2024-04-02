@@ -1,8 +1,8 @@
 'use client';;
 import { useEffect, useState } from 'react';
 import { InView } from 'react-intersection-observer';
-import {IssuesResponseType} from '@/types/posts';
-import loadPosts from './page.action';
+import { IssuesResponseType } from '@/types/posts';
+import loadPosts from '@/app/(feed)/page.action';
 import { BlogsItem } from './BlogsItem';
 import BlogsItemSkeleton from '@/components/skeletons/BlogItemSkeleton';
 

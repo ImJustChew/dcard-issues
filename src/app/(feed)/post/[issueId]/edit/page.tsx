@@ -1,9 +1,9 @@
-import { PostEditorContainer } from "../../new/PostEditorContainer";
-import {getPostById} from '@/lib/posts';
-import {PostRouteProps} from '@/app/(feed)/post/[issueId]/page.type';
-import {remark} from 'remark';
+import { PostEditorContainer } from "@/components/editor/PostEditorContainer";
+import { getPostById } from '@/lib/posts';
+import { PostRouteProps } from '@/app/(feed)/post/[issueId]/page.type';
+import { remark } from 'remark';
 import html from 'remark-html';
-import {ChevronLeft} from 'lucide-react';
+import { ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import remarkGfm from 'remark-gfm';
 import { getServerSession } from "next-auth";

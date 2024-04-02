@@ -1,8 +1,8 @@
-import { FloatingMenu, BubbleMenu, EditorContent, Editor } from '@tiptap/react';
+import { BubbleMenu, EditorContent, Editor } from '@tiptap/react';
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group"
 import { Bold, Italic, Strikethrough } from 'lucide-react';
 
-const Tiptap = ({ editor }: { editor: Editor}) => {
+const Tiptap = ({ editor }: { editor: Editor }) => {
   return (
     <>
       {editor && <BubbleMenu className="bg-background" tippyOptions={{ duration: 100 }} editor={editor}>
@@ -27,7 +27,7 @@ const Tiptap = ({ editor }: { editor: Editor}) => {
           </ToggleGroupItem>
         </ToggleGroup>
       </BubbleMenu>}
-      <EditorContent editor={editor}/>
+      <EditorContent editor={editor} />
     </>
   )
 }

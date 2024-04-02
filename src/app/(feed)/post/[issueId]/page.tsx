@@ -1,6 +1,5 @@
 import { getPostById } from '@/lib/posts';
-import { redirect } from 'next/navigation';
-import { PostContentContainer } from './PostContentContainer';
+import { PostContentContainer } from '@/components/blog/PostContentContainer';
 import { Metadata } from 'next';
 import { PostRouteProps } from './page.type';
 
@@ -23,7 +22,7 @@ export async function generateMetadata({ params: { issueId } }: PostRouteProps) 
         },
     } as Metadata;
   }
-  
+
 
 const PostPage = async ({ params: { issueId } }: PostRouteProps) => {
     const issue = await getPostById(issueId);

@@ -1,4 +1,3 @@
-import { FC, PropsWithChildren } from "react";
 import SignOutSignOutDropdownMenuItem from "@/components/login/SignOutDropdownMenuItem";
 import {
     DropdownMenu,
@@ -15,7 +14,7 @@ export const UserMenu = async () => {
     const session = (await getServerSession(authOptions))!;
     return <DropdownMenu>
         <DropdownMenuTrigger asChild>
-            <Image src={session.user.image} alt='avatar' width={32} height={32} className='rounded-full w-8 h-8'  />
+            <Image src={session.user.image} alt='avatar' width={32} height={32} className='rounded-full w-8 h-8' />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
             <DropdownMenuLabel>{session.user.name}</DropdownMenuLabel>

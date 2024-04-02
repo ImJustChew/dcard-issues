@@ -16,7 +16,6 @@ import { useRouter } from 'next/navigation';
 import { Separator } from '@/components/ui/separator';
 import TextareaAutosize from 'react-textarea-autosize';
 import { useSession } from 'next-auth/react';
-import { revalidatePath } from 'next/cache';
 
 export const PostEditorContainer = ({ initialPost }: { initialPost?: { title: string, content: string, issueId: string } }) => {
     const router = useRouter();
