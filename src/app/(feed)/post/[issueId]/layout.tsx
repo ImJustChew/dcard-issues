@@ -8,7 +8,7 @@ const Layout: React.FC<PropsWithChildren<PostRouteProps>> = ({ children, params:
     }
     return <div className="flex flex-col items-center">
         <div className="flex flex-col w-full max-w-[65ch]">
-        {children};
+        {children}
         </div>
     </div>
 
