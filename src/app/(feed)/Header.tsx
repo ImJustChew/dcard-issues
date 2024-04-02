@@ -14,9 +14,9 @@ export const Header = async () => {
             <h1 className="text-xl font-medium">Blogs</h1>
         </div>
         <div className="flex flex-row gap-2 items-center">
-            <Link href='/post/new'>
+            {session && <Link href='/post/new'>
                 <Button variant='outline' size='sm'><Plus className="w-4 h-4 mr-2" /> New Post</Button>
-            </Link>
+            </Link>}
             {!session && <GithubLoginButton />}
             {session && <UserMenu />}
         </div>

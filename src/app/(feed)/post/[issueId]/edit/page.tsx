@@ -6,8 +6,15 @@ import html from 'remark-html';
 import {ChevronLeft} from 'lucide-react';
 import Link from 'next/link';
 import remarkGfm from 'remark-gfm';
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
 
 const NewPostPage = async ({ params: { issueId } }: PostRouteProps) => {
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        redirect('/404');
+    }
     const issue = await getPostById(issueId);
     const content = remark().use(remarkGfm).use(html).processSync(issue.body ?? "").toString();
     return <>
