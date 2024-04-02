@@ -31,7 +31,7 @@ export const PostContentContainer = async ({ issue }: { issue: IssueResponseType
                     <p>@{issue.user.login}</p>
                 </div>}
             </div>
-            {isAuthor && <PostEditingToolbar issueId={String(issue.id)} />}
+            {isAuthor && <PostEditingToolbar issueId={String(issue.number)} />}
             <Separator />
             <article className="prose prose-neutral" dangerouslySetInnerHTML={{ __html: content }} />
         </div>

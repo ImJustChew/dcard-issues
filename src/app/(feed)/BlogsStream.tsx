@@ -26,7 +26,7 @@ const BlogsItem = ({ issue }: { issue: IssueResponseType }) => {
             <Image src={issue.user.avatar_url} alt='avatar' width={24} height={24} className='rounded-full ' />
             <p>{issue.user.login}</p>
             -
-            <p>{formatDistanceStrict(time, new Date(issue.created_at), { addSuffix: false })}</p>
+            <p>{formatDistanceStrict(time, new Date(issue.created_at), { addSuffix: false })} </p>
         </div>}
         <h1 className='font-bold text-lg'>{issue.title}</h1>
         <p className='line-clamp-3'>{issue.body}</p>
