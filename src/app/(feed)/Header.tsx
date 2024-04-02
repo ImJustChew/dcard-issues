@@ -5,15 +5,20 @@ import { GithubLoginButton } from "@/components/login/GithubLoginButton";
 import { Button } from "@/components/ui/button";
 import { UserMenu } from "@/components/login/UserMenu";
 import { authOptions } from "../api/auth/[...nextauth]/authOptions";
+import {ThemeSwitcher} from '@/components/ThemeSwitcher';
+import { cookies } from "next/headers";
+import { Theme } from "@/types/theme";
 
 export const Header = async () => {
     const session = await getServerSession(authOptions);
+    const theme = cookies().get('theme');
 
     return <div className="h-12 px-4 py-1 flex flex-row items-center">
         <div className="flex-1 h-full flex flex-row items-center">
             <h1 className="text-xl font-medium">Blogs</h1>
         </div>
         <div className="flex flex-row gap-2 items-center">
+            <ThemeSwitcher theme={theme?.value as Theme} />
             {session && <Link href='/post/new'>
                 <Button variant='outline' size='sm'><Plus className="w-4 h-4 mr-2" /> New Post</Button>
             </Link>}

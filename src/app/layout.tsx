@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Toaster } from "@/components/ui/toaster"
 import NextAuthProvider from "@/components/NextAuthProvider";
 import "./globals.css";
+import { cookies } from "next/headers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,8 +26,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const theme = cookies().get("theme")
+
   return (
-    <html lang="en">
+    <html lang="en" className={theme?.value}>
       <NextAuthProvider>
         <body className={inter.className}>
           {children}

@@ -31,7 +31,7 @@ export const PostEditorContainer = ({ initialPost }: { initialPost?: { title: st
         ],
         editorProps: {
             attributes: {
-                class: 'prose prose-neutral mx-auto focus:outline-none',
+                class: 'prose prose-neutral mx-auto focus:outline-none dark:text-neutral-400',
             },
         },
         content: initialPost?.content,
@@ -90,16 +90,16 @@ export const PostEditorContainer = ({ initialPost }: { initialPost?: { title: st
             <div className='flex flex-row gap-2 items-center w-full'>
                 <div className='flex-1 w-full'>
                     {!initialPost ? 
-                        <p className='text-sm text-gray-600'>Publishing to Repository</p>:
-                        <p className='text-sm text-gray-600'>Editing post #{initialPost.issueId}</p>}
-                    <p className='text-sm text-gray-600'>as {session.data?.user.name}</p>
+                        <p className='text-sm text-gray-500'>Publishing to Repository</p>:
+                        <p className='text-sm text-gray-500'>Editing post #{initialPost.issueId}</p>}
+                    <p className='text-sm text-gray-500'>as {session.data?.user.name}</p>
                 </div>
                 <div className='flex flex-row gap-2 items-center'>
                     <Button variant='default' className='w-full text-left' onClick={handlePublish} disabled={!isValidPost}>Publish</Button>
                 </div>
             </div>
             {/* giant unsyled input for title */}
-            <TextareaAutosize placeholder="Title" className="font-bold text-3xl w-full break-words overflow-hidden resize-none auto" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <TextareaAutosize placeholder="Title" className="font-bold text-3xl w-full break-words overflow-hidden resize-none auto bg-background" value={title} onChange={(e) => setTitle(e.target.value)} />
             <Separator />
             {editor && <Tiptap editor={editor} />}
         </div>
