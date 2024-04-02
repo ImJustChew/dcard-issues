@@ -6,7 +6,12 @@ const Layout: React.FC<PropsWithChildren<PostRouteProps>> = ({ children, params:
     if (!issueId) {
         redirect('/404');
     }
-    return (children);
+    return <div className="flex flex-col items-center">
+        <div className="flex flex-col w-full max-w-[65ch]">
+        {children};
+        </div>
+    </div>
+
 };
 
 export default Layout;

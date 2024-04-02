@@ -1,11 +1,10 @@
 import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
-import { GithubLoginButton } from "@/components/login/GithubLoginButton";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import Link from "next/link";
-import { UserMenu } from "./layout";
+import { GithubLoginButton } from "@/components/login/GithubLoginButton";
+import { Button } from "@/components/ui/button";
+import { UserMenu } from "@/components/login/UserMenu";
 
 export const Header = async () => {
     const session = await getServerSession(authOptions);
@@ -16,12 +15,10 @@ export const Header = async () => {
         </div>
         <div className="flex flex-row gap-2 items-center">
             <Link href='/post/new'>
-                <Button variant='ghost'><Plus className="w-4 h-4 mr-2" /> New Post</Button>
+                <Button variant='outline' size='sm'><Plus className="w-4 h-4 mr-2" /> New Post</Button>
             </Link>
             {!session && <GithubLoginButton />}
-            {session && <UserMenu>
-                <Image src={session.user.image} alt='avatar' width={32} height={32} className='rounded-full w-8 h-8' />
-            </UserMenu>}
+            {session && <UserMenu />}
         </div>
     </div>;
 };

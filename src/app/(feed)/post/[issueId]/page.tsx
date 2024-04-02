@@ -27,11 +27,7 @@ export async function generateMetadata({ params: { issueId } }: PostRouteProps) 
 
 const PostPage = async ({ params: { issueId } }: PostRouteProps) => {
     const issue = await getPostById(issueId);
-    return <div className="px-2 flex flex-col items-center">
-        <div className="flex flex-col w-full max-w-[65ch]">
-            <PostContentContainer issue={issue} />
-        </div>
-    </div>
+    return <PostContentContainer issue={issue} />
 }
 
 export default PostPage;
