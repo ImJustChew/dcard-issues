@@ -34,7 +34,7 @@ export const PostContentContainer = async ({ issue }: { issue: IssueResponseType
             </div>
             {isAuthor && <PostEditingToolbar issueId={String(issue.number)} />}
             <Separator />
-            <article className="prose prose-neutral dark:text-neutral-400" dangerouslySetInnerHTML={{ __html: content }} />
+            <article className="prose prose-neutral dark:prose-invert" dangerouslySetInnerHTML={{ __html: content }} />
         </div>
     </div>;
 };

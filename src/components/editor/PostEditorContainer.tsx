@@ -31,7 +31,7 @@ export const PostEditorContainer = ({ initialPost }: { initialPost?: { title: st
         ],
         editorProps: {
             attributes: {
-                class: 'prose prose-neutral mx-auto focus:outline-none dark:text-neutral-400',
+                class: 'prose prose-neutral mx-auto focus:outline-none dark:prose-invert',
             },
         },
         content: initialPost?.content,
